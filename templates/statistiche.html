@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+{% endblock %}
+
+{% block titolo %}Statistiche{% endblock %}
+
+{% block contenuto %}
+<div class="w3-row-padding" style="width:80%; margin:0 auto">
+    <div class="w3-col s12 m6 l6"><canvas id="airTemp"></canvas></div>
+    <div class="w3-col s12 m6 l6"><canvas id="airHum"></canvas></div>
+    <div class="w3-col s12 m6 l6"><canvas id="soilTemp"></canvas></div>
+    <div class="w3-col s12 m6 l6"><canvas id="soilHum"></canvas></div>
+</div>
+{% endblock %}
+
+{% block codiceJS %}
+<script>
+const dati = {{ dati | tojson }};
+
+// Ricava la lista dei sensori univoci
+const sensori = [...new Set(dati.map(d => d.sensore))];
+
+// Colori per ogni sensore
+const colori = ["red", "blue", "green", "orange"];
+
+// Per ogni misura, crea un grafico
+const misure = ["airTemp", "airHum", "soilTemp", "soilHum"];
+const etichette = {
+    airTemp:  "Temperatura aria (°C)",
+    airHum:   "Umidità aria (%)",
+    soilTemp: "Temperatura suolo (°C)",
+    soilHum:  "Umidità suolo (%)"
+};
+
+misure.forEach(misura => {
+    const datasets = sensori.map((sensore, i) => {
+        const punti = dati
+          .filter(d => d.sensore === sensore)
+          .map(d => ({ x: new Date(d.dataOra), y: d[misura] }))
+          .sort((a, b) => a.x - b.x);
+        return {
+            label: sensore,
+            data: punti,
+            borderColor: colori[i],
+            fill: false,
+            tension: 0.3
+        };
+    });
+
+    new Chart(document.getElementById(misura), {
+        type: "line",
+        data: { datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+                x: { type: "time", time: { tooltipFormat: "dd/MM HH:mm:ss", displayFormats: { millisecond: "dd/MM HH:mm", second: "dd/MM HH:mm", minute: "dd/MM HH:mm", hour: "dd/MM HH:mm", day: "dd/MM" } } , ticks: { maxTicksLimit: 12 } },
+                y: { beginAtZero: true }
+            },
+            plugins: {
+                title: { display: true, text: etichette[misura] }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

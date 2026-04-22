@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block titolo %}Sensor Dashboard{% endblock %}
+
+{% block contenuto %}
+<div class="w3-container" style="width:80%; margin:0 auto">
+        <table class="w3-table-all w3-hoverable">
+            <tr>
+                <th>Sensore</th>
+		<th>Data e Ora</th>
+		<th>Temperatura dell'aria (°C)</th>
+		<th>Umidità dell'aria (%)</th>
+		<th>Temperatura del suolo (°C)</th>
+		<th>Umidità del suolo (%)</th>
+            </tr>
+            {% for r in rows %}
+            <tr>
+                <td>{{r.sensore}}</td>
+		<td>{{r.dataOra}}</td>
+		<td>{{r.airTemp}}</td>
+		<td>{{r.airHum}}</td>
+		<td>{{r.soilTemp}}</td>
+		<td>{{r.soilHum}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block titolo %}Il corso Sistemi Informatici{% endblock %}
+
+{% block contenuto %}
+<div class="w3-container" style="width:80%; margin:0 auto">
+<p>
+Questo sito è stato realizzato con un enorme lavoro svolto durante il corso di Sistemi Informatici 2025-2026.
+Il sito raccoglie i dati dei dispositivi di controllo realizzati anch'essi nelle ore del progetto.
+</p>
+
+<p>
+I dispositivi comprendono vari sensori:
+<ul>
+<li>Un sensore DHT11 per il monitoraggio della temperatura e dell'umidità dell'aria</li>
+<li>Un sensore MOISTURE per il monitoraggio dell'umidità del suolo</li>
+<li>Un sensore DS18B20 per il monitoraggio della temperatura del suolo</li>
+</ul>
+</p>
+
+<p>
+Sono stati costruiti 3 dispositivi!!! 
+Ogni apparecchiatura raccoglie i dati dai sensori elencati e li invia ogni ora al sito che state vedendo!!!
+</p>
+
+
+<img src="static/dispositivo.jpg" class="w3-image" alt="dispositivo di prova">
+
+</div>
+{% endblock %}
