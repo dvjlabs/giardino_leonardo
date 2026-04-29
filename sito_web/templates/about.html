@@ -3,23 +3,43 @@
 {% block titolo %}Il corso sistemi informatici{% endblock %}
 
 {% block contenuto %}
-<div class="w3-container" style="width:80%; margin:0 auto">
-<p>Questo sito è stato realizzato con un enorme lavoro svolto durante il corso di Sistemi Informatici 2025-2026.
-Il sito raccoglie i dati dei dispositivi di controllo realizzati anch'essi nelle ore del progetto.
-</p>
-
+<div class="w3-container" style="width:70%; margin:0 auto">
 <p>
-I dispositivi comprendono vari sensori:
+Durante il corso di Sistemi Informatici 2025-2026 abbiamo realizzato un <strong>progetto basato su un microcontrollore ESP32</strong> e i seguenti sensori:
+
 <ul>
-<li>Un sensore DHT11 per il monitoraggio della temperatura e dell'umidità dell'aria</li>
-<li>Un sensore MOISTURE per il monitoraggio dell'umidità del suolo</li>
-<li>un sensore DS18B20 per il monitoraggio della temperatura del suolo</li>
+<li>un sensore <b>DHT11</b> per il monitoraggio della temperatura e dell'umidità dell'aria</li>
+<li>un sensore <b>MOISTURE</b> per il monitoraggio dell'umidità del suolo</li>
+<li>un sensore <b>DS18B20</b> per il monitoraggio della temperatura del suolo</li>
 </ul>
 </p>
 
-<p> Sono stati costruti 3 dispositivi!!!
-Ogni apparecchiatura raccoglie i dati dai sensore elenacati e li invia ogni ora al sito che state vedendo.
+<p>
+Il progetto comprende inoltre un <strong>display LCD1602</strong> per la visualizzazione dei dati, 
+il collegamento al wifi e l’invio degli stessi al sito che state vedendo 
+(sezioni <a href="/dati">DATI</a> e <a href="/statistiche">STATISTICHE</a>).
 </p>
-<img src="static/dispositivo.jpg" class="w3-image" alt="dispositivo di prova">
+
+<p>
+Sono stati costruti ben <strong>3 dispositivi</strong>!!!
+</p>
+
+<p>
+Ovviamente durante il corso è stato realizzato anche questo fantastico <strong>sito web, 
+hostato sui server della scuola!</strong> 
+Il sito raccoglie i dati dei dispositivi di controllo e li visualizza in tabelle e grafici.
+</p>
+
+<p>
+Per rendere il progetto adatto all’uso in ambiente esterno, abbiamo progettato e realizzato 
+tramite stampa 3D <b>tre contenitori</b> destinati a ospitare il microprocessore e i componenti elettronici, 
+in modo da poterli posizionare nelle aiuole.
+</p>
+
+<p>
+Infine, abbiamo creato dei <strong>QR code</strong> che consentono di accedere rapidamente alle pagine web delle singole piante.
+</p>
+
+<img src="static/dispositivo.png" class="w3-image" alt="dispositivo di prova">
 </div>
 {% endblock %}

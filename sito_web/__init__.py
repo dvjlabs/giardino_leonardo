@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import json
 from pathlib import Path
 from importlib.resources import files
+import datetime
 
 FILE_PIANTE = files(__package__) / "piante.txt"
 FILE_DATI = files(__package__) / "dati.json"
@@ -37,6 +38,7 @@ def create_app(test_config=None):
             return "ERRORE!!!!"
 
         payload = request.get_json()
+        payload["dataOra"] = datetime.datetime.now().strftime("%d-%m-%Y %H:%M")
         file = open(FILE_DATI,"a")
         file.write( json.dumps(payload) +"\n")
         file.close()
