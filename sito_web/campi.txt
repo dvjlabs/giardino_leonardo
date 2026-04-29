@@ -1,0 +1,6 @@
+sensori
+dataOra
+airTemp
+airHum
+soilTemp
+soilHum

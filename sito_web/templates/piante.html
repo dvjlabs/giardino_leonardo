@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titolo %}Piante del giardino di Leonardo{% endblock %}
+
+{% block contenuto %}
+<div class="w3-row-padding" style="width:80%; margin:0 auto">
+
+{% for pianta in lista_piante_disponibili %}
+<div class="w3-col l4 m4 s12">
+<div class="w3-card-4 w3-round">
+<a href="/pianta/{{pianta}}">
+  <img src="static/{{pianta}}.jpg" class="w3-image w3-round" alt="{{pianta}}">
+  <div class="w3-container w3-center">
+    <p>{{pianta}}</p>
+  </div>
+</a>
+</div>
+<br>
+</div>
+
+{% endfor %}
+
+</div>
+{% endblock %}

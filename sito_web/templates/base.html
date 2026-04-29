@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Il giardino di Leonardo</title>
+
+<!-- META TAGS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="HandheldFriendly" content="true">
+
+<meta name="title" content="Il giardino di Leonardo">
+<meta name="description" content="Il giardino di Leonardo è un sito web dedicato alla gestione e alla gestione dei giardini di Leonardo.">
+<meta name="keywords" content=" giardino di Leonardo, Da Vinci, Liceo Da Vinci Jesi, Corso Sistemi Informatici, dvjlabs.org, school, scuola, programming, networks, software">
+
+<meta name="robots" content="index,follow">
+<meta name="revisit-after" content="15 DAYS">
+<meta name="language" content="it">
+<meta name="rating" content="safe for kids">
+
+<link rel="icon" href="https://www.dvjlabs.org/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+{% block head %}{% endblock %}
+</head>
+
+<body>
+
+<div class="w3-bar w3-cobalt">
+  <a class="w3-bar-item w3-button w3-hover-pale-blue" href="/">Home</a>
+  <a class="w3-bar-item w3-button w3-hover-pale-blue" href="/dati">Dati</a>
+  <a class="w3-bar-item w3-button w3-hover-pale-blue" href="/statistiche">Statistiche</a>
+  <a class="w3-bar-item w3-button w3-hover-pale-blue" href="/piante">Piante</a>
+</div>
+
+<br>
+<br>
+
+<h1 class="w3-center">{% block titolo %}{% endblock %}</h1>
+
+<br>
+<br>
+
+<content>
+    {% block contenuto %}{% endblock %}
+</content>
+
+
+<br>
+<br>
+<br>
+<footer class="w3-cobalt w3-center w3-padding-32 w3-container">
+Sito realizzato durante il corso Sistemi Informatici 2025-2026, collegato al progetto "Il Giardino di Leonardo".<br>
+Dafne, Lusiana e Melania hanno curato la parte estetica del sito, con Andrea ed Edoardo che si sono limitati ad accettare
+le loro decisioni...<br>
+nel frattempo Giorgio e il resto della banda hanno implementato le stazioni di invio dei dati che state vedendo in tempo reale...
+</footer>
+
+{% block codiceJS %}{% endblock %}
+
+</body>
+</html>
