@@ -54,6 +54,7 @@ def create_app(test_config=None):
         file.close()
         return render_template("piante.html",lista_piante_disponibili = lista)
 
+    # ---------------------------------------------------------------------
     @app.route("/pianta/<nomePianta>")
     def pianta(nomePianta):
         dizPianteDisponibili = {}
@@ -80,6 +81,19 @@ def create_app(test_config=None):
             rows.append(diz)
         file.close()
         return render_template("statistiche.html", dati = rows[-MAX_DATI:])
+
+    #---------------------------------------------------------------------
+    @app.route("/reset")
+    def cancellaFile():
+        file = open(FILE_DATI,"w")
+        file.close()
+        return redirect("/")
+
+    #----------------------------------------------------------------------
+    @app.route("/about")
+    def about():
+        return render_template("about.html")
+
 
     # closing the create_app app!!!
     return app
